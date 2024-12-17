@@ -4,10 +4,12 @@ client_secret: {{ RETIREMENT_EDX_OAUTH2_CLIENT_SECRET }}
 base_urls:
     lms: {{ "https" if ENABLE_HTTPS else "http" }}://{{ LMS_HOST }}
     {% if NOTES_HOST is defined %}notes: {{ "https" if ENABLE_HTTPS else "http" }}://{{ NOTES_HOST }}{% endif %}
+    {% if ECOMMERCE_HOST is defined %}ecommerce: {{ "https" if ENABLE_HTTPS else "http" }}://{{ ECOMMERCE_HOST }}{% endif %}
 
 retirement_pipeline:
     - [ 'RETIRING_ENROLLMENTS', 'ENROLLMENTS_COMPLETE', 'LMS', 'retirement_unenroll' ]
     {% if FORUM_VERSION is defined %}- [ 'RETIRING_FORUMS', 'FORUMS_COMPLETE', 'LMS', 'retirement_retire_forum' ]{% endif %}
     {% if NOTES_HOST is defined %}- [ 'RETIRING_NOTES', 'NOTES_COMPLETE', 'LMS', 'retirement_retire_notes' ]{% endif %}
+    {% if ECOMMERCE_HOST is defined %}- [ 'RETIRING_ECOMMERCE', 'ECOMMERCE_COMPLETE', 'ECOMMERCE', 'retire_learner']{% endif %}
     - [ 'RETIRING_LMS_MISC', 'LMS_MISC_COMPLETE', 'LMS', 'retirement_lms_retire_misc' ]
     - [ 'RETIRING_LMS', 'LMS_COMPLETE', 'LMS', 'retirement_lms_retire' ]
