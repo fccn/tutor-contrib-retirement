@@ -19,6 +19,11 @@ RETIREMENT_STATES = [
     'NOTES_COMPLETE',
     {% endif %}
 
+    {% if ECOMMERCE_HOST is defined %}
+    'RETIRING_ECOMMERCE',
+    'ECOMMERCE_COMPLETE',
+    {% endif %}
+
     'RETIRING_LMS_MISC',
     'LMS_MISC_COMPLETE',
 
