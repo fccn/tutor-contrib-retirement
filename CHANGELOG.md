@@ -1,3 +1,23 @@
+## Version 5.3.1 (2025-09-19)
+
+* [Chore] Create a new patch release for a convenient `teak.2` upgrade.
+
+## Version 5.3.0 (2025-07-28)
+
+* [Enhancement] Support Tutor 20 and Open edX Teak.
+
+## Version 5.2.1 (2025-05-26)
+
+* [Chore] Create a new patch release for a convenient `sumac.3` upgrade.
+
+## Version 5.2.0 (2025-04-15)
+
+* [Enhancement] Allow to override the Dockerfile base image.
+
+## Version 5.1.0 (2025-01-03)
+
+* [Enhancement] Support Tutor 19 and Open edX Sumac.
+
 ## Version 5.0.0 (2024-10-07)
 
 * Drop support for Python 3.8.
